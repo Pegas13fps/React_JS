@@ -1,0 +1,8 @@
+button {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+div {
+    padding: 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
