@@ -16,29 +16,84 @@
 
 
     <script type="text/babel">
-        class Clock extends React.Component {
-            render() {
-                return (
-                    <div>
-                      <h1>React JS!</h1>
-                      <h2>It is {this.props.date.toLocaleTimeString()}.</h2>
-                    </div>
-                );
-            }
-        }
-        function tick() {
-            ReactDOM.render(
-                 <Clock date={new Date()} />, document.getElementById('timer')
-            );
-        }
-        setInterval(tick, 1000);
+
+        // 1. - Timer 
+        // class Clock extends React.Component {
+        //     render() {
+        //         return (
+        //             <div>
+        //               <h1>React JS!</h1>
+        //               <h2>It is {this.props.date.toLocaleTimeString()}.</h2>
+        //             </div>
+        //         );
+        //     }
+        // }
+        // function tick() {
+        //     ReactDOM.render(
+        //          <Clock date={new Date()} />, document.getElementById('timer')
+        //     );
+        // }
+        // setInterval(tick, 1000);
+
+        // 2. JSX разметка для HTML
+        // class App extends React.Component{
+        //     render() {
+        //         const element = <h2> Hello world! </h2>;
+        //         return <div>{element}</div>
+        //     }
+        // }
+        // ReactDOM.render(<App />,
+        // document.getElementById('root')
+        // );
+        
+        // 3. Масив и список
+        // class App extends React.Component{
+        //     render() {
+        //         const users = ['Alex', 'Andrey', 'Ivan'];
+        //         const listItems = users.map(user => <li>{user}</li>);
+        //         return <ul>{listItems}</ul>
+        //     }
+        // }
+        // ReactDOM.render(<App />,
+        // document.getElementById('root')
+        // );
+
+        // 4. props обьект, переменная, выражение, this.props - только для чтения.
+        // class App extends React.Component{
+        //     render() {
+        //         return <Greet greeting="Hello" />;
+        //     }
+        // }
+        // class Greet extends React.Component{
+        //     render() {
+        //         return <h3>{this.props.greeting} Wordl!</h3>
+        //     }
+        // }
+        // ReactDOM.render(<App />,
+        // document.getElementById('root')
+        // );
+
 
         class App extends React.Component{
-            render() {
-                return <h2> Hello world! </h2>
-            }
-        }
+            // render() {
+                constructor() {
+                    super();
+                    this.state = {name: "Alexey"};
+                }
+                changeName() {
+                    this.setState ({name: "Ivan"});
+                }
 
+                render() {
+                    return (
+                        <div>
+                            <h3>Hello {this.state.name}</h3>
+                            <button type="button" onClick = {this.changeName.bind (this)} >Push for change name!</button>
+                        </div>
+                    )
+                }
+            // }
+        }
         ReactDOM.render(<App />,
         document.getElementById('root')
         );
